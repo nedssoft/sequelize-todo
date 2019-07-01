@@ -10,7 +10,7 @@ class TodoItemController {
     try {
       const todo = await Todo.findByPk(todoId);
       if (todo) {
-        const todoItem = await TodoItem.create({todoId:todo.id, content: content });
+        const todoItem = await todo.createTodoItem({ content });
         if (todoItem) {
           return res.status(201).json({ message: "Success", todoItem });
         } else return res.status(500).json({ message: "oops" });

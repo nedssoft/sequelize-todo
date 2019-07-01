@@ -3,11 +3,10 @@ import db from '../models'
 
 const { Todo, TodoItem } = db;
 class TodoController {
-
   static async create(req, res) {
     const { title } = req.body;
     try {
-      const todo = await Todo.create({ title: title});
+      const todo = await Todo.create({ title: title });
       return res.status(201).json({
         todo,
         message: 'success'
@@ -27,7 +26,6 @@ class TodoController {
           }
         ]
       });
-      debugger
       return res.status(200).json({ todos })
     } catch (error) {
       return res.status(500).json({ message: 'internal server error'});
@@ -66,7 +64,6 @@ class TodoController {
     }
   }
 }
-
 export default TodoController;
 
 

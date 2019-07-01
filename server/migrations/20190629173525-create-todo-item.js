@@ -11,6 +11,10 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
+      completed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       todoId: {
         type: Sequelize.INTEGER,
         OnDelete: 'CASCADE',
