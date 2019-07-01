@@ -1,4 +1,4 @@
-'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('TodoItems', {
@@ -10,6 +10,15 @@ module.exports = {
       },
       content: {
         type: Sequelize.STRING
+      },
+      todoId: {
+        type: Sequelize.INTEGER,
+        OnDelete: 'CASCADE',
+        references: {
+          model: 'Todos',
+          key: 'id',
+          as: 'todoId'
+        }
       },
       createdAt: {
         allowNull: false,
